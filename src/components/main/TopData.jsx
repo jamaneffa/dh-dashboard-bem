@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
-import { FaUsers} from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
 import { IoIosList } from "react-icons/io";
 import { PiTreeStructureDuotone } from "react-icons/pi";
 
@@ -15,10 +15,16 @@ function TopData() {
   const [isLoadingProducts, setIsLoadingProducts] = useState(true);
   const [isLoadingCategories, setIsLoadingCategories] = useState(true);
 
+  const apiUrl = import.meta.env.PROD
+    ? "https://beelegantmen.onrender.com"
+    : "http://localhost:3030";
+
   useEffect(() => {
+    console.log("API URL:", import.meta.env);
+
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:3030/api/users");
+        const response = await fetch(`${apiUrl}/api/users`);
         const result = await response.json();
 
         setUsersData(result);
@@ -30,7 +36,7 @@ function TopData() {
 
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3030/api/products");
+        const response = await fetch(`${apiUrl}/api/products`);
         const result = await response.json();
 
         setProductsData(result);
@@ -42,7 +48,7 @@ function TopData() {
 
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:3030/api/products/categories");
+        const response = await fetch(`${apiUrl}/api/products/categories`);
         const result = await response.json();
 
         setCategoriesData(result);
@@ -55,17 +61,17 @@ function TopData() {
     fetchUsers();
     fetchProducts();
     fetchCategories();
-  }, []);
+  }, [apiUrl]);
 
   const iconStyle = {
-    fontSize: '30px'
-  }
+    fontSize: "30px",
+  };
 
   const spinStyle = {
-    display: 'inline-block',
-    animation: 'spin 1s linear infinite',
+    display: "inline-block",
+    animation: "spin 1s linear infinite",
   };
-  
+
   const keyframesStyle = `
   @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -85,11 +91,15 @@ function TopData() {
                   Total de Usuarios
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  {isLoadingUsers ? <AiOutlineLoading3Quarters style={spinStyle} /> : usersData.count}
+                  {isLoadingUsers ? (
+                    <AiOutlineLoading3Quarters style={spinStyle} />
+                  ) : (
+                    usersData.count
+                  )}
                 </div>
               </div>
               <Link to="/allusers">
-                <FaUsers style={iconStyle}/>
+                <FaUsers style={iconStyle} />
               </Link>
             </div>
           </div>
@@ -105,7 +115,11 @@ function TopData() {
                   Total de Productos
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  {isLoadingProducts ? <AiOutlineLoading3Quarters style={spinStyle} /> : productsData.count}
+                  {isLoadingProducts ? (
+                    <AiOutlineLoading3Quarters style={spinStyle} />
+                  ) : (
+                    productsData.count
+                  )}
                 </div>
               </div>
               <Link to="/allproducts">
@@ -125,7 +139,11 @@ function TopData() {
                   Total De Categorias
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  {isLoadingCategories ? <AiOutlineLoading3Quarters style={spinStyle} /> : categoriesData.count}
+                  {isLoadingCategories ? (
+                    <AiOutlineLoading3Quarters style={spinStyle} />
+                  ) : (
+                    categoriesData.count
+                  )}
                 </div>
               </div>
               <Link to="/allcategories">

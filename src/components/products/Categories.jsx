@@ -6,10 +6,14 @@ const Categories = () => {
   const [countByCategory, setCountByCategory] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
+  const apiUrl = import.meta.env.PROD
+    ? "https://beelegantmen.onrender.com"
+    : "http://localhost:3030";
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:3030/api/products");
+        const response = await fetch(`${apiUrl}/api/products`);
         const result = await response.json();
 
         setCountByCategory(result.countByCategory);
@@ -20,7 +24,7 @@ const Categories = () => {
     };
 
     fetchCategories();
-  }, []);
+  }, [apiUrl]);
 
   if (isLoading) {
     return <SkeletonCategories />;
@@ -38,9 +42,7 @@ const Categories = () => {
           <div className="row">
             <div className="col-lg-6 mb-4">
               <div className="card bg-info text-white shadow">
-                <div className="card-body">
-                  Ambos : {countByCategory.ambos}
-                </div>
+                <div className="card-body">Ambos : {countByCategory.ambos}</div>
               </div>
             </div>
             <div className="col-lg-6 mb-4">
@@ -66,9 +68,7 @@ const Categories = () => {
             </div>
             <div className="col-lg-6 mb-4">
               <div className="card bg-info text-white shadow">
-                <div className="card-body">
-                  Sacos : {countByCategory.sacos}
-                </div>
+                <div className="card-body">Sacos : {countByCategory.sacos}</div>
               </div>
             </div>
             <div className="col-lg-6 mb-4">

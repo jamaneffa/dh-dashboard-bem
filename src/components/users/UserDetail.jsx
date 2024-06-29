@@ -9,10 +9,14 @@ function UserDetail() {
   const [userDetailData, setUserDetailData] = useState({});
   const [isLoadingUser, setIsLoadingUser] = useState(true);
 
+  const apiUrl = import.meta.env.PROD
+    ? "https://beelegantmen.onrender.com"
+    : "http://localhost:3030";
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:3030/api/users/${id}`);
+        const response = await fetch(`${apiUrl}/api/users/${id}`);
         const result = await response.json();
 
         setUserDetailData(result.user);
@@ -23,7 +27,7 @@ function UserDetail() {
     };
 
     fetchUser();
-  }, [id]);
+  }, [apiUrl, id]);
 
   const linkStyle = {
     textAlign: "center",

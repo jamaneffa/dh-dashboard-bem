@@ -10,10 +10,14 @@ function AllUsers() {
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 9;
 
+  const apiUrl = import.meta.env.PROD
+    ? "https://beelegantmen.onrender.com"
+    : "http://localhost:3030";
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:3030/api/users");
+        const response = await fetch(`${apiUrl}/api/users`);
         const result = await response.json();
 
         setListUsersData(result);
@@ -24,7 +28,7 @@ function AllUsers() {
     };
 
     fetchUsers();
-  }, []);
+  }, [apiUrl]);
 
   const titleStyle = { textAlign: "center", marginBottom: "2%" };
   const pagButtonsStyle = {
@@ -59,10 +63,7 @@ function AllUsers() {
         ) : (
           listUsersData.users &&
           listUsersData.users
-            .slice(
-              (currentPage - 1) * usersPerPage,
-              currentPage * usersPerPage
-            )
+            .slice((currentPage - 1) * usersPerPage, currentPage * usersPerPage)
             .map((user) => (
               <div key={user.id} className="col-md-4 mb-4">
                 <div className="card border-left-warning shadow h-100 py-2">
@@ -86,31 +87,28 @@ function AllUsers() {
             ))
         )}
       </div>
-      {listUsersData.users &&
-        listUsersData.users.length > usersPerPage && (
-          <div className="paginationButtons" style={pagButtonsStyle}>
-            <button
-              onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
-              disabled={currentPage === 1}
-              style={currentPage === 1 ? disabledButtonStyle : buttonStyle}
-            >
-              Anterior
-            </button>
-            <button
-              onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
-              disabled={
-                currentPage * usersPerPage >= listUsersData.users.length
-              }
-              style={
-                currentPage * usersPerPage >= listUsersData.users.length
-                  ? disabledButtonStyle
-                  : buttonStyle
-              }
-            >
-              Siguiente
-            </button>
-          </div>
-        )}
+      {listUsersData.users && listUsersData.users.length > usersPerPage && (
+        <div className="paginationButtons" style={pagButtonsStyle}>
+          <button
+            onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
+            disabled={currentPage === 1}
+            style={currentPage === 1 ? disabledButtonStyle : buttonStyle}
+          >
+            Anterior
+          </button>
+          <button
+            onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
+            disabled={currentPage * usersPerPage >= listUsersData.users.length}
+            style={
+              currentPage * usersPerPage >= listUsersData.users.length
+                ? disabledButtonStyle
+                : buttonStyle
+            }
+          >
+            Siguiente
+          </button>
+        </div>
+      )}
       <hr className="sidebar-divider" />
       <h5 style={titleStyle}>
         <Link to={`/`}>

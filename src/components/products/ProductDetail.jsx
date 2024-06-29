@@ -10,12 +10,14 @@ function ProductDetail() {
   const [product, setProduct] = useState([]);
   const [isLoadingProduct, setIsLoadingProduct] = useState(true);
 
+  const apiUrl = import.meta.env.PROD
+    ? "https://beelegantmen.onrender.com"
+    : "http://localhost:3030";
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:3030/api/products/${sku}`
-        );
+        const response = await fetch(`${apiUrl}/api/products/${sku}`);
         const result = await response.json();
 
         setProduct(result.product);
@@ -25,7 +27,7 @@ function ProductDetail() {
       }
     };
     fetchProduct();
-  }, [sku]);
+  }, [apiUrl, sku]);
 
   const linkStyle = {
     textAlign: "center",

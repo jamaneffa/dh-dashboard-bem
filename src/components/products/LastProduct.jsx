@@ -4,23 +4,27 @@ import SkeletonLastProduct from "../skeletons/SkeletonLastProduct";
 
 function LastProduct() {
   const [lastProductData, setLastProductData] = useState({});
-  const [isLoadingLastProduct, setIsLoadingLastProduct] = useState(true)
+  const [isLoadingLastProduct, setIsLoadingLastProduct] = useState(true);
+
+  const apiUrl = import.meta.env.PROD
+    ? "https://beelegantmen.onrender.com"
+    : "http://localhost:3030";
 
   useEffect(() => {
     const fetchLastProduct = async () => {
       try {
-        const response = await fetch("http://localhost:3030/api/products/lastproduct");
+        const response = await fetch(`${apiUrl}/api/products/lastproduct`);
         const result = await response.json();
-  
-        setLastProductData(result.product);   
-        setIsLoadingLastProduct(false)   
+
+        setLastProductData(result.product);
+        setIsLoadingLastProduct(false);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchLastProduct();
-  }, []);
+  }, [apiUrl]);
 
   return (
     <div className="col-lg-6 mb-4">

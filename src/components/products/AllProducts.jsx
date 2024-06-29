@@ -11,10 +11,14 @@ function AllProducts() {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 9;
 
+  const apiUrl = import.meta.env.PROD
+    ? "https://beelegantmen.onrender.com"
+    : "http://localhost:3030";
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3030/api/products");
+        const response = await fetch(`${apiUrl}/api/products`);
         const result = await response.json();
 
         setListProductsData(result);
@@ -25,8 +29,7 @@ function AllProducts() {
     };
 
     fetchProducts();
-
-  }, []);
+  }, [apiUrl]);
 
   const titleStyle = { textAlign: "center", marginBottom: "2%" };
   const pagButtonsStyle = {
