@@ -2,7 +2,9 @@
 
 ## Descripción / Description
 
-Este es un Dashboard creado con Vite que muestra la información del proyecto educativo **Be Elegant Men** creado en el marco del **Curso Programación Web Full Stack** realizado en **Digital House**. / This is a Dashboard created with Vite that displays information about the educational project **Be Elegant Men**, created as part of the **Full Stack Web Programming Course** at **Digital House**. 
+Este es un Dashboard creado con Vite que muestra la información del proyecto educativo **Be Elegant Men** creado en el marco del **Curso Programación Web Full Stack** realizado en **Digital House**. 
+
+This is a Dashboard created with Vite that displays information about the educational project **Be Elegant Men**, created as part of the **Full Stack Web Programming Course** at **Digital House**. 
 
 Dashboard Desplegado / Deployed Dashboard: [https://dashboardbem.netlify.app](https://dashboardbem.netlify.app)  
 
@@ -15,7 +17,7 @@ Para levantar el proyecto en tu entorno local, sigue estos pasos / To run the pr
    Abre una terminal y ejecuta el siguiente comando / Open a terminal and run the following command
 
    ```bash
-   git clone https://github.com/jamaneffa/dh-bem.git
+   git clone https://github.com/jamaneffa/dh-dashboard-bem.git
    ```
 
 2. **Instalar dependencias / Install dependencies**
@@ -23,7 +25,7 @@ Para levantar el proyecto en tu entorno local, sigue estos pasos / To run the pr
     Navega a la carpeta del proyecto / Navigate to the project folder
 
     ```bash
-    cd dh-bem
+    cd dh-dashboard-bem
     ```
     
     Luego, instala las dependencias del proyecto / Then, install the project dependencies
@@ -44,4 +46,6 @@ Para levantar el proyecto en tu entorno local, sigue estos pasos / To run the pr
 
 ## Importante / Important
 
-Para que el Dashboard funcione correctamente en tu entorno local, la aplicación original también debe estar levantada. El código fuente de la aplicación original se encuentra en [GitHub](https://github.com/jamaneffa/dh-bem.git) / Important: In order for the Dashboard to work properly in your local environment, the original application must also be running. The source code for the original application can be found at [GitHub](https://github.com/jamaneffa/dh-bem.git)
+Para que el Dashboard funcione correctamente en tu entorno local, la aplicación original también debe estar levantada. El código fuente de la aplicación original se encuentra en [GitHub](https://github.com/jamaneffa/dh-bem.git) 
+
+In order for the Dashboard to work properly in your local environment, the original application must also be running. The source code for the original application can be found at [GitHub](https://github.com/jamaneffa/dh-bem.git)
