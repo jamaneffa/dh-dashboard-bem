@@ -46,6 +46,6 @@ Para levantar el proyecto en tu entorno local, sigue estos pasos / To run the pr
 
 ## Importante / Important
 
-Para que el Dashboard funcione correctamente en tu entorno local, la aplicación original también debe estar levantada. El código fuente de la aplicación original se encuentra en [GitHub](https://github.com/jamaneffa/dh-bem.git) 
+Para que el Dashboard funcione correctamente en tu entorno local, la aplicación original también debe estar levantada / In order for the Dashboard to work properly in your local environment, the original application must also be running. 
 
-In order for the Dashboard to work properly in your local environment, the original application must also be running. The source code for the original application can be found at [GitHub](https://github.com/jamaneffa/dh-bem.git)
+Código fuente de la aplicación original / Source code for the original application: [https://github.com/jamaneffa/dh-bem.git](https://github.com/jamaneffa/dh-bem.git)
