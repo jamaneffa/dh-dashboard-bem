@@ -1,18 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import Loader from "./components/extras/Loader";
 
-import Dashboard from './components/main/Dashboard'
-import Layout from './components/extras/Layout'
-import NotFound from './components/extras/NotFound'
-import AllUsers from './components/users/AllUsers'
-import UserDetail from './components/users/UserDetail'
-import AllProducts from './components/products/AllProducts'
-import Categories from './components/products/Categories'
-import LastProduct from './components/products/LastProduct'
-import ProductDetail from './components/products/ProductDetail'
+const Dashboard = lazy(() => import('./components/main/Dashboard'));
+const Layout = lazy(() => import('./components/extras/Layout'));
+const NotFound = lazy(() => import('./components/extras/NotFound'));
+const AllUsers = lazy(() => import('./components/users/AllUsers'));
+const UserDetail = lazy(() => import('./components/users/UserDetail'));
+const AllProducts = lazy(() => import('./components/products/AllProducts'));
+const Categories = lazy(() => import('./components/products/Categories'));
+const LastProduct = lazy(() => import('./components/products/LastProduct'));
+const ProductDetail = lazy(() => import('./components/products/ProductDetail'));
 
 function App() {
   return (
     <BrowserRouter>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route index element={<Dashboard />} />
           <Route path="/" element={<Layout />}>
@@ -25,8 +28,10 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
 
 export default App;
+
