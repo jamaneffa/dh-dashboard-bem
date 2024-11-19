@@ -10,12 +10,12 @@ Dashboard Desplegado / Deployed Dashboard: [https://dashboardbem.netlify.app](ht
 
 ## Instrucciones para levantar el proyecto localmente / Instructions to locally run the project
 
-Para levantar el proyecto en tu entorno local, sigue estos pasos:  
+Para levantar el proyecto en tu entorno local, sigue estos pasos:
 To run the project in your local environment, follow these steps:
 
 1. **Clonar el repositorio / Clone the repository**
 
-   Abre una terminal y ejecuta el siguiente comando:  
+   Abre una terminal y ejecuta el siguiente comando:
    Open a terminal and run the following command:
 
    ```bash
