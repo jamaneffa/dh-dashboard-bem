@@ -10,13 +10,13 @@ Dashboard Desplegado / Deployed Dashboard: [https://dashboardbem.netlify.app](ht
 
 ## Instrucciones para levantar el proyecto localmente / Instructions to locally run the project
 
-Para levantar el proyecto en tu entorno local, sigue estos pasos:
-To run the project in your local environment, follow these steps:
+Para levantar el proyecto en tu entorno local, sigue estos pasos
+To run the project in your local environment, follow these steps
 
 1. **Clonar el repositorio / Clone the repository**
 
-   Abre una terminal y ejecuta el siguiente comando:
-   Open a terminal and run the following command:
+   Abre una terminal y ejecuta el siguiente comando
+   Open a terminal and run the following command
 
    ```bash
    git clone https://github.com/jamaneffa/dh-bem.git
@@ -24,15 +24,15 @@ To run the project in your local environment, follow these steps:
 
 2. **Instalar dependencias / Install dependencies**
 
-    Navega a la carpeta del proyecto:
-    Navigate to the project folder:
+    Navega a la carpeta del proyecto
+    Navigate to the project folder
 
     ```bash
     cd dh-bem
     ```
     
-    Luego, instala las dependencias del proyecto:
-    Then, install the project dependencies:
+    Luego, instala las dependencias del proyecto
+    Then, install the project dependencies
     
     ```bash
     npm install
@@ -40,12 +40,12 @@ To run the project in your local environment, follow these steps:
 
 3. **Levantar el proyecto / Run the project**
 
-    Para iniciar el servidor de desarrollo, ejecuta el siguiente comando:
-    To start the development server, run the following command:
+    Para iniciar el servidor de desarrollo, ejecuta el siguiente comando
+    To start the development server, run the following command
 
     ```bash
     npm run dev
     ```
 
-    Esto iniciará el servidor en http://localhost:5173.
-    This will start the server at http://localhost:5173.
+    Esto iniciará el servidor en http://localhost:5173
+    This will start the server at http://localhost:5173
